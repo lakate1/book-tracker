@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}
+
+.book-result-container {
+  padding: 20px;
+
+  form {
+    text-align: center;
+
+    button {
+      outline: 2px solid black;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  input[type="text"] {
+    color: black;
+    outline: 2px solid black;
+    margin-bottom: 10px;
+  }
+}
+
+ul.book-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  padding: 0px 20px;
+
+  li {
+    background-color: black;
+  }
+}

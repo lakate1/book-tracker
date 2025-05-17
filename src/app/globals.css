@@ -30,7 +30,21 @@ h1 {
   color: black;
 }
 
-.book-result-container {
+h2 {
+  font-size: 20px;
+  color: white;
+}
+
+h3 {
+  font-size: 14px;
+  color: #a5a5a5;
+}
+
+P {
+  font-size: 10px;
+}
+
+.book-form-container {
   padding: 20px;
 
   form {
@@ -50,13 +64,52 @@ h1 {
   }
 }
 
-ul.book-list {
+.book-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 15px;
   padding: 0px 20px;
 
+  img {
+    cursor: pointer;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .book-info {
+    padding: 20px;
+  }
+
   li {
     background-color: black;
+    outline: 2px solid black;
+    max-width: 250px;  
+    border-radius: 10px 0px 10px 0px;
+
+    .book-excerpt {
+      margin-top: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: normal;
+      width: 100%;
+    }
+
+    .book-add-button {
+      display: flex;
+      justify-content: flex-end;
+      margin: 3rem 0 0;
+      padding: 0 1.75rem 1.5rem;
+    }
+    .add-button {
+      outline: 2px solid white;
+      padding: 2px;
+      display: flex;
+      justify-content: center;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+    }
   }
 }
+

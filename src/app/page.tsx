@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import BookSearch from '../components/BookSearch';
+import BookSearch from '../components/BookResults';
 
 interface Book {
     id: string;
@@ -19,9 +19,7 @@ const Page = () => {
     return (
         <header>
             <h1>Search a book to add it to your list</h1>
-        <div className="book-search-container">
             <BookSearch addBook={addBook} />
-        </div>
         </header>
     );
 };

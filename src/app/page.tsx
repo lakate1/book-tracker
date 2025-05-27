@@ -1,16 +1,17 @@
 'use client';
 
-import React from 'react';
-import { useSession, signIn } from 'next-auth/react';
+import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import BookSearch from '../components/BookResults';
 import LoginForm from '@/components/LoginForm';
+import RegisterForm from '@/components/RegisterForm';
 
 type Book = {
-    id: string;
-    title: string;
-    authors: string[];
-    image: string;
-  };
+  id: string;
+  title: string;
+  authors: string[];
+  image: string;
+};
 
 const addBook = async (book: Book) => {
   console.log('book added', book);
@@ -19,13 +20,21 @@ const addBook = async (book: Book) => {
 
 const Page = () => {
   const { data: session, status } = useSession();
+  const [showRegister, setShowRegister] = useState(false); // ✅ this was missing
 
   if (status === 'loading') {
     return <p>Loading...</p>;
   }
 
   if (!session) {
-    return <LoginForm />;
+    return (
+      <>
+        {showRegister ? <RegisterForm /> : <LoginForm />}
+        <button onClick={() => setShowRegister((prev) => !prev)}>
+          {showRegister ? 'Back to Login' : 'Create Account'}
+        </button>
+      </>
+    );
   }
 
   return (

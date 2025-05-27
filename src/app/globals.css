@@ -72,7 +72,7 @@ P {
 
   img {
     cursor: pointer;
-    height: auto;
+    height: 300px;
     object-fit: cover;
     width: 100%;
   }
@@ -84,8 +84,13 @@ P {
   li {
     background-color: black;
     outline: 2px solid black;
-    max-width: 250px;  
     border-radius: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+
+
 
     .book-excerpt {
       margin-top: 10px;
@@ -98,9 +103,9 @@ P {
     .book-add-button {
       display: flex;
       justify-content: flex-end;
-      margin: 3rem 0 0;
-      padding: 0 1.75rem 1.5rem;
+      margin: auto 20px 10px 10px;
     }
+    
     .add-button {
       outline: 2px solid white;
       padding: 2px;

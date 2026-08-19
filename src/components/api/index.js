@@ -1,13 +1,13 @@
 
 const searchBooks = async (query) => {
-    try {
-        const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=' + query);
-        const data = await response.json();
-        return data.items || [];
-    } catch (error) {
-        console.log("error finding books!");
-        return [];
+    const response = await fetch('/api/books?q=' + encodeURIComponent(query));
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.error || 'Failed to search books');
     }
+
+    return data.items || [];
 };
 
 export { searchBooks };

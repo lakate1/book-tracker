@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import BookSearch from '../components/BookResults';
 import LoginForm from '@/components/LoginForm';
 import RegisterForm from '@/components/RegisterForm';
@@ -40,6 +40,7 @@ const Page = () => {
   return (
     <header>
       <h1>Search a book to add it to your list</h1>
+      <button onClick={() => signOut()}>Log out</button>
       <BookSearch addBook={addBook} />
     </header>
   );

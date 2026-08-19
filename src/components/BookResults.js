@@ -6,13 +6,19 @@ import { searchBooks } from "./api";
 function BookResults({ addBook}) {
     const [query, setquery] = useState('');
     const [results, setResults] = useState([]);
+    const [error, setError] = useState('');
 
     const handleSearch = async (e) => {
-      e.preventDefault(); 
-      if (!query) return; 
-      
-      const books = await searchBooks(query);
-      setResults(books);
+      e.preventDefault();
+      if (!query) return;
+
+      try {
+        const books = await searchBooks(query);
+        setResults(books);
+        setError('');
+      } catch (err) {
+        setError(err.message);
+      }
     };
   
 
@@ -41,8 +47,9 @@ function BookResults({ addBook}) {
           />
           <button className="search-button" type="submit">Search</button>
         </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </div>
-  
+
       <div className="book-result-container">
         <ul className='book-list'>
           {results.map((book) => (

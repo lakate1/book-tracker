@@ -27,7 +27,7 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="auth-card" onSubmit={handleSubmit}>
       <h2>Login</h2>
       <input
         type="email"

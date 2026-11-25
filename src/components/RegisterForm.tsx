@@ -41,7 +41,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
+    <form className="auth-card" onSubmit={handleRegister}>
       <h2>Sign Up</h2>
       <input
         type="email"
